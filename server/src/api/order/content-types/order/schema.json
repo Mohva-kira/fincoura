@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "string"
+    },
+    "products": {
+      "type": "text"
+    },
+    "user": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "integer"
+    }
+  }
+}
