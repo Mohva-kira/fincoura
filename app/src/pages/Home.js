@@ -88,7 +88,7 @@ const Home = () => {
       <Container>
         <Row>
           <Col lg='12' className='text-center mb-4'>
-            <h2 className="section__title">Trending Products</h2>
+            <h2 className="section__title">Vêtements</h2>
 
           </Col>
           <ProductList data={trendingProduct} />
@@ -99,7 +99,7 @@ const Home = () => {
       <Container>
         <Row>
           <Col lg='12' className='text-center'>
-            <h2 className="section__title">Best Sales</h2>
+            <h2 className="section__title">Pour la maison</h2>
 
           </Col>
           <ProductList data={bestSalesProducts}/>
@@ -114,12 +114,12 @@ const Home = () => {
           <Col lg='6' md='12' className='count__down-col'>
 
             <div className="clock__top-content">
-              <h4 className='text-white fs-6 mb-2'>Limited Offer</h4>
+              <h4 className='text-white fs-6 mb-2'>Offre limitée</h4>
               <h3 className='text-white fs-5 mb-3'>Quality Armchair</h3>
             </div>
             <Clock />
             <motion.button whileTap={{scale: 1.2}} className="buy__btn store__btn">
-              <Link to='/shop'> Visit Store </Link>
+              <Link to='/shop'> Visite nos collections </Link>
             </motion.button>
           </Col>
           <Col lg='6' md='12' className='text-end counter__img'>
@@ -132,7 +132,7 @@ const Home = () => {
       <Container>
         <Row>
           <Col lg='12' className='text-center'>
-            <h2 className='section__title'> New Arrivals </h2>
+            <h2 className='section__title'> Nouvelles Collections</h2>
           </Col>
           <ProductList data={mobileProducts} />
           <ProductList data={wirelessProducts} />
@@ -143,7 +143,7 @@ const Home = () => {
     <Container>
         <Row>
           <Col lg='12' className='text-center'>
-            <h2 className='section__title'> Popular in Category </h2>
+            <h2 className='section__title'> Catégorie Populaire </h2>
           </Col>
           <ProductList data={popularProducts} />
         </Row>

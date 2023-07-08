@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import './header.css'
 import { Container, Row, Toast } from 'reactstrap'
 import { NavLink, useNavigate } from 'react-router-dom'
-import logo from "../../assets/images/logo_complet.png"
+import logo from "../../assets/images/logo.png"
 import userIcon from "../../assets/images/user-icon.png"
 import { motion } from 'framer-motion'
 
