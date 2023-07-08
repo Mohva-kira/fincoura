@@ -1,6 +1,6 @@
 {
     "rewrites": [
-        { "source": "dist/**", "destination": "/index.html" },
+        { "source": "app/**", "destination": "/index.html" },
         { "source": "projects/*/edit", "destination": "/edit-project.html" }
       ]
   }
