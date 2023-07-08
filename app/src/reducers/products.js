@@ -16,7 +16,7 @@ export const productsApi = createApi({
    
     reducerPath: 'productsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:1337/api',
+        baseUrl: 'http://141.94.204.155:1337/api',
 
     }),
     endpoints: (builder) => ({

@@ -88,7 +88,7 @@
     export const cartApi = createApi({
         reducerPath: 'cartApi',
         baseQuery: fetchBaseQuery({
-            baseUrl: 'http://localhost:1337/api',
+            baseUrl: 'http://141.94.204.155:1337/api',
             prepareHeaders: (headers, { getState }) => {
             
             

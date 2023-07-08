@@ -38,7 +38,7 @@ const initialState = {
 
    export const authAPI = createApi({
     reducerPath: 'authAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:1337/api'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://141.94.204.155:1337/api'}),
     endpoints: (builder) => ({
         signUp: builder.mutation({
             query: (data) => ({
