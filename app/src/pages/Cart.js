@@ -117,7 +117,7 @@ const Tr = ({ item }) => {
   }
   return <tr >
    
-    <td> <img src={`http://localhost:1337${item.imgID}`} alt="" /> </td>
+    <td> <img src={`http://141.94.204.155:1337${item.imgID}`} alt="" /> </td>
     <td> {item.productName}  </td>
     <td>  { util.formatCirrency(item.price) } </td>
     <td>{item.quantity}px</td>

@@ -72,7 +72,7 @@ const ProductDetails = () => {
     <section className='pt-0'>
       <Container>
         <Row>
-          <Col lg='6'><img src={`http://localhost:1337${attributes.image.data[0].attributes.url}`} alt="" /></Col>
+          <Col lg='6'><img src={`http://141.94.204.155:1337${attributes.image.data[0].attributes.url}`} alt="" /></Col>
 
           <Col lg='6'>
             <div className="product__details">
