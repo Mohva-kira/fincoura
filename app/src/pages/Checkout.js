@@ -17,7 +17,7 @@ const Checkout = () => {
 
   const [checkoutOrder] = useCheckoutOrderMutation()
   const getDataBody = () =>  {
-    const data = {}
+    const data = {} 
 
    
 
@@ -93,54 +93,54 @@ CinetPay.onError(function(data) {
   
   }
 
-  return <Helmet title='Checkout'> 
-    <CommonSection  title="Checkout" />
-    {console.log('drupal order', drupalCart)}
+  return <Helmet title='Paiement'> 
+    <CommonSection  title="Paiement" />
+
    
     <section>
       <Container>
-      {console.log('order id', orderId) }
+   
         <Row>
           <Col lg='8'>
-            <h6 className="mb-4 fw-bold">Billing Information</h6>
+            <h6 className="mb-4 fw-bold">Information de facturation</h6>
             <Form className='billing__form'>
               <FormGroup className='form__group'>
-                <input type="text" placeholder='Enter your name' />
+                <input type="text" placeholder='Nom et prenom' />
               </FormGroup>
               
               <FormGroup className='form__group'>
-                <input type="email" placeholder='Enter your email' />
+                <input type="email" placeholder='Entrer vôtre email' />
               </FormGroup>
 
               <FormGroup className='form__group'>
-                <input type="number" placeholder='Phone number' />
+                <input type="number" placeholder='Numero de téléphone' />
               </FormGroup>
 
               <FormGroup className='form__group'>
-                <input type="text" placeholder='Street address' />
+                <input type="text" placeholder='Adresse' />
               </FormGroup>
 
               <FormGroup className='form__group'>
-                <input type="text" placeholder='city' />
+                <input type="text" placeholder='Ville' />
               </FormGroup>
 
               <FormGroup className='form__group'>
-                <input type="text" placeholder='Postal code' />
+                <input type="text" placeholder='Code Postal' />
               </FormGroup>
 
               <FormGroup className='form__group'>
-                <input type="text" placeholder='Country' />
+                <input type="text" placeholder='Pays' />
               </FormGroup>
             </Form>
           </Col>
           <Col lg="4">
             <div className="checkout__cart">
-              <h6>Total Qty: <span> {totalQty} items </span></h6>
-              <h6>Subtotal: <span> {totalAmount} €</span></h6>
-              <h6> <span>Shipping: <br/> free shipping </span>  <span>0€</span></h6>
+              <h6>Total Qte: <span> {totalQty} articles </span></h6>
+              <h6>Sous Total: <span> {totalAmount} €</span></h6>
+              <h6> <span>Livraison: <br/> Gratuite </span>  <span>0€</span></h6>
              
-              <h4>Total Cost : <span> {totalAmount}€</span></h4>
-              <button onClick={() => placeOrder()} className="buy__btn auth__btn w-100">Place an order</button>
+              <h4>Coût Total: <span> {totalAmount}€</span></h4>
+              <button onClick={() => placeOrder()} className="buy__btn auth__btn w-100">Payer</button>
             </div>
             
           </Col>

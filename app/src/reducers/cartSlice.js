@@ -8,9 +8,11 @@
 
     const drupalOrder = localStorage.getItem('drupalOrder') !== null ? JSON.parse(localStorage.getItem('drupalOrder')) : {}
 
-    const cartToken = localStorage.getItem('cartToken')
-    const token = localStorage.getItem('access_token')
-    const accessToken = token ? token.toString() : ""
+   
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    console.log('localstorage user', user)
+    const accessToken = user ? user.jwt : ""
     const setItemFunc = (item, totalAmount, totalQuantity) => {
         localStorage.setItem('cartItems', JSON.stringify(item))
         localStorage.setItem('totalAmount', JSON.stringify(totalAmount))
@@ -86,15 +88,15 @@
     export const cartApi = createApi({
         reducerPath: 'cartApi',
         baseQuery: fetchBaseQuery({
-            baseUrl: 'http://localhost/web/jsonapi',
+            baseUrl: 'http://localhost:1337/api',
             prepareHeaders: (headers, { getState }) => {
             
             
                 // If we have a token set in state, let's assume that we should be passing it.
                 if (accessToken) {
-                headers.set('Authorization', `Bearer ${accessToken}` )
-                headers.set('Content-Type', "application/vnd.api+json")
-                headers.set('Accept', 'application/vnd.api+json')
+                headers.set('Authorization', `Bearer ${user.jwt}` )
+                headers.set('Content-Type', "application/json")
+         
                 }
             
                 return headers
@@ -105,7 +107,7 @@
         endpoints:(builder) =>  ({
             addToCart: builder.mutation({
                 query: (data) => ({
-                    url: `/cart/add`,
+                    url: `/orders`,
                     body: data,
                     method: 'POST',
                     
@@ -116,8 +118,8 @@
 
             getCarts: builder.query({
                 query: () => ({
-                    url: '/carts',
-                    headers: {'Content-Type': 'application/vnd.api+json'}
+                    url: '/orders',
+                    headers: {'Content-Type': 'application/json'}
                 })
             }),
 

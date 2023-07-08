@@ -23,20 +23,11 @@ const Cart = () => {
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const [checkout] = useAddToCartMutation()
   
-  const convertData = (array, key) => {
-    const data = {};
-    const newArr = []
-    for (let item of array) {
-       newArr.push({id: item.id ,type: item.type, meta: {quantity: item.quantity, combine: false}})
-    }
-    data.data = newArr
-    localStorage.setItem('cartToken', Math.random().toString(36).substring(2))
-    return data
-  };
-  const data = convertData(cartItems)
+
+
   
   const handleCheckout = async () => {
-    const dataToSend = JSON.stringify(data)
+    const dataToSend = {data: {total: totalAmount, status: 'En attente', products: cartItems, }}
     try {
       console.log(dataToSend)
       console.log("token", localStorage.getItem('access_token'))
@@ -58,7 +49,7 @@ const Cart = () => {
     <section>
     
       <Container>
-        {console.log(data)}
+
         <Row>
           <Col lg='9'>
             {
@@ -69,10 +60,10 @@ const Cart = () => {
                   <thead>
                     <tr>
                       <th>Image</th>
-                      <th>Title</th>
-                      <th>Price</th>
-                      <th>Qty</th>
-                      <th>Delete</th>
+                      <th>Titre</th>
+                      <th>Prix</th>
+                      <th>Qte</th>
+                      <th>Supprimer</th>
                     </tr>
                   </thead>
 
@@ -91,19 +82,19 @@ const Cart = () => {
           </Col>
           <Col lg='3'>
             <div>
-              <h6 className='d-flex align-items-center justify-content-between'>Subtotal <span className='fs-4 fw-bold'>{util.formatCirrency(totalAmount)}</span></h6>
+              <h6 className='d-flex align-items-center justify-content-between'>Sous Total <span className='fs-4 fw-bold'>{util.formatCirrency(totalAmount)}</span></h6>
 
             </div>
-            <p className='fs-6 mt-2'>taxes and shipping will calculate in checkout</p>
+            <p className='fs-6 mt-2'>Les taxes et les frais d'expédition seront calculés lors du paiement</p>
             <div>
-              <Link onClick={()=>handleCheckout(data)} to='/checkout'>
+              <Link onClick={handleCheckout} to='/checkout'>
                 <button className="buy__btn w-100 ">
-                  Checkout
+                  Payer
                 </button>
               </Link>
               <Link to='/shop'>
                 <button className="buy__btn w-100 mt-3">
-                  Continue Shopping
+                  Continuer le Shopping
                 </button>
               </Link> 
             </div>
@@ -120,13 +111,13 @@ const Tr = ({ item }) => {
   const WS_KEY = 'ws_key=X62XX13PRJYYZQP7FZR663UK4S29D4A9'  
   const dispatch = useDispatch()
 
-  const imageUrl = dataImages.find(el => el.id === item.imgID)
+ 
   const deleteProduct = () => {
     dispatch(cartActions.deleteItem(item.id))
   }
   return <tr >
    
-    <td> <img src={`http://localhost${imageUrl?.attributes.uri.url}`} alt="" /> </td>
+    <td> <img src={`http://localhost:1337${item.imgID}`} alt="" /> </td>
     <td> {item.productName}  </td>
     <td>  { util.formatCirrency(item.price) } </td>
     <td>{item.quantity}px</td>

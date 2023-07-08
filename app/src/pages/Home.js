@@ -64,10 +64,10 @@ const Home = () => {
           <Col lg='6' md='6'>
             <div className="hero__content">
               <p className="hero_subtitle uppercase">
-               { t('trending products') }  {year}
+               { t('Trending products') }  {year}
               </p>
               <h2>
-                les produits d'ici et d'ailleurs!
+                Les produits d'ici et d'ailleurs!
               </h2>
               <p>
                 Explorez le monde depuis votre maison avec notre boutique de design

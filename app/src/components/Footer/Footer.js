@@ -16,13 +16,13 @@ const Footer = () => {
 
             <div>
               <h1 className='text-white'>
-               Fincoura
+                Fincoura
               </h1>
             </div>
 
           </div>
           <p className="footer__text mt-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et iusto neque ipsa nulla nisi molestiae eos soluta enim amet illo!
+            Une entreprise passionnée basée à Bamako ! Nous créons des vêtements et du linge de maison uniques en utilisant le bogolan et des tissus teints à la main. Chaque pièce est un hommage à l'artisanat malien, alliant traditions ancestrales et créativité contemporaine. Rejoignez-nous dans notre voyage textile inspirant !
           </p>
         </Col>
         <Col lg='3' className='mb-4' md='3'>
@@ -30,16 +30,16 @@ const Footer = () => {
             <h4 className="quick__links-title">Top Categories</h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Mobile Phone</Link>
+                <Link to='#'>Vêtements</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Modern Sofa</Link>
+                <Link to='#'>Linge de Maison </Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Arm Chair</Link>
+                <Link to='#'>Cosmétiques</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Smart Watches</Link>
+                <Link to='#'>Accessoires</Link>
               </ListGroupItem>
             </ListGroup>
           </div>
@@ -47,41 +47,41 @@ const Footer = () => {
         <Col lg='2' className='mb-4' md='3'>
 
           <div className="footer__quick-links">
-            <h4 className="quick__links-title">Useful Links</h4>
+            <h4 className="quick__links-title">Liens utiles</h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop'>Shop</Link>
+                <Link to='/shop'>Boutiques</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/cart'>Cart</Link>
+                <Link to='/cart'>Panier</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/login'>Login</Link>
+                <Link to='/login'>Connexion</Link>
               </ListGroupItem>
-              <ListGroupItem className='ps-0 border-0'>
+              {/* <ListGroupItem className='ps-0 border-0'>
                 <Link to='#'>Privacy Policy</Link>
-              </ListGroupItem>
+              </ListGroupItem> */}
             </ListGroup>
           </div>
 
         </Col>
-        <Col lg='3 '  md='4'>
+        <Col lg='3 ' md='4'>
           <div className="footer__quick-links">
             <h4 className="quick__links-title">Contact</h4>
             <ListGroup className='footer__contact'>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-map-pin-line"></i></span>
-                <p>Rue: 839, Porte: 421, Faladie Sema, Bamako, Mali</p>
+                <p>ACI 2000 - Immeuble Jean Marie Cissé</p>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-phone-line"></i></span>
-                <p>+223 82 79 67 98</p>
+                <p>+223 83 96 63 62</p>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
                 <span><i className="ri-mail-line"></i></span>
-                <p>mariam.d@fincoura.com</p>
+                <p>promotrice@fincoura.com</p>
               </ListGroupItem>
-             
+
             </ListGroup>
           </div>
         </Col>

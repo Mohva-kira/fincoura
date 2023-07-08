@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "date": {
-      "type": "datetime"
-    },
     "total": {
       "type": "decimal"
     },
@@ -22,13 +19,14 @@
       "type": "string"
     },
     "products": {
-      "type": "text"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
     },
-    "user": {
-      "type": "integer"
-    },
-    "category": {
-      "type": "integer"
+    "users": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

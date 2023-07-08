@@ -23,7 +23,7 @@ const initialState = {
         }),
         builder.addMatcher(authAPI.endpoints.login.matchFulfilled, (state, action) =>  {
             console.log('user logged-in payload', action.payload)
-            state.user.auth = action.payload
+            state.user = action.payload
            
         }),
         builder.addMatcher(authAPI.endpoints.getToken.matchFulfilled, (state, action) =>  {
@@ -38,11 +38,11 @@ const initialState = {
 
    export const authAPI = createApi({
     reducerPath: 'authAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost/web'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:1337/api'}),
     endpoints: (builder) => ({
         signUp: builder.mutation({
             query: (data) => ({
-                url: '/user/register?_format=json',
+                url: '/auth/local/register',
                 body: data,
                 method: 'POST',
                 headers: {
@@ -53,7 +53,7 @@ const initialState = {
         }),
         login: builder.mutation({
             query: (data) => ({
-                url: '/user/login?_format=json',
+                url: '/auth/local',
                 body: data,
                 method: 'POST',
                 headers: {

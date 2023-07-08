@@ -8,64 +8,64 @@ import '../styles/shop.css'
 import ProductList from '../components/UI/ProductList'
 import { useGetProductsQuery } from '../reducers/products'
 import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 
 const Shop = () => {
   const {data, isLoading, isSuccess} = useGetProductsQuery()
   
-
-  const [ productsData, setProductsData ] = useState()
+  const [searchParams, setSearchParams] = useSearchParams();
+   console.log('le param', searchParams.get("category")) 
+ 
+  
+   const categoryParam =   searchParams.get("category")
+   const [ productsData, setProductsData ] = useState()
 
   const handleFilter = e=> {
 
     const filterValue = e.target.value
-    if(filterValue==='frais'){
-      const filteredProducts = data.data.filter(item => item.attributes.field_categories === '1' )
+    if(filterValue==='Vêtements'){
+      const filteredProducts = data.data.filter(item => item.attributes.category.data.attributes.name === 'Vêtements' )
       
       setProductsData(filteredProducts)
       
     }
 
-    if(filterValue==='transformé'){
-      const filteredProducts = data.data.filter(item => item.attributes.field_categories === '2' )
+    if(filterValue==='linge de maison'){
+      const filteredProducts = data.data.filter(item => item.attributes.category.data.attributes.name === 'linge de maison' )
       
       setProductsData(filteredProducts)
 
     }
 
-    if(filterValue==='watch'){
-      const filteredProducts = products.filter(item => item.category === 'watch' )
+    if(filterValue==='Accesoires'){
+      const filteredProducts = data.data.filter(item => item.attributes.category.data.attributes.name === 'Accesoires' )
       
       setProductsData(filteredProducts)
 
     }
-    if(filterValue==='chair'){
-      const filteredProducts = products.filter(item => item.category === 'chair' )
+    if(filterValue==='Cosmétiques'){
+      const filteredProducts = data.data.filter(item => item.attributes.category === 'Cosmétiques' )
       
       setProductsData(filteredProducts)
 
     }
-    if(filterValue==='wireless'){
-      const filteredProducts = products.filter(item => item.category === 'wireless' )
-      
-      setProductsData(filteredProducts)
-
-    }
+  
   }
 
   const handleSearch = e=> {
     const searchTerm = e.target.value 
 
-    const searchedProducts = data.data.filter(item => item.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    const searchedProducts = data.data.filter(item => item.attributes.name.toLowerCase().includes(searchTerm.toLowerCase()))
     setProductsData(searchedProducts)
   }
 
 
   useEffect(()=> {
-    setProductsData(data?.data)
-  }, [isSuccess])
+    setProductsData(data?.data.filter(item => item.attributes.category.data.attributes.name === categoryParam ))
+  }, [isSuccess, categoryParam])
 
   return <Helmet title="Shop"> 
-      <CommonSection  title="Products" />
+      <CommonSection  title={categoryParam} />
       {console.log(productsData)}
       <section>
         <Container>
@@ -73,21 +73,21 @@ const Shop = () => {
             <Col lg='3' md='6'>
               <div className="filter__widget">
                  <select onChange={handleFilter}>
-                  <option > Filter By Category</option>
-                  <option value="frais" >Frais</option>
-                  <option value="transformé">Transformé</option>
-                  <option value="chair">Chair</option>
-                  <option value="watch">Watch</option>
-                  <option value="wireless">Wireless</option>
+                  <option > Filtrer par Category</option>
+                  <option value="Vêtements" >Vêtements</option>
+                  <option value="linge de maison">Linge de maison</option>
+                  <option value="Accessoires">Accessoires</option>
+                  <option value="Cosmétiques">Cosmétiques</option>
+                 
                  </select>
               </div>
             </Col>
             <Col lg='3' md='6' className='text-end'>
             <div className="filter__widget" >
                  <select >
-                  <option > Sort By</option>
-                  <option value="ascending" >Ascending</option>
-                  <option value="descending">Descending</option>
+                  <option > Trier par </option>
+                  <option value="ascending" >Ascendent</option>
+                  <option value="descending">Descendent</option>
                
                  </select>
               </div>

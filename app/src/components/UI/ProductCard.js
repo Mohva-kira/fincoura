@@ -24,9 +24,9 @@ const ProductCard = ({item}) => {
     const addToCart = () => {
         dispatch(cartActions.addItem({
             id: item.id,
-            productName: item.attributes.title,
-            price: item.attributes.price.number,
-            imgID: item.relationships.field_image.data[0].id,
+            productName: item.attributes.name,
+            price: item.attributes.price,
+            imgID: item.attributes.image.data[0].attributes.url,
             type: item.type
         }))
 

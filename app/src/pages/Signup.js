@@ -62,52 +62,44 @@ const Signup = () => {
 
     try {
 
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      // const userCredential = await createUserWithEmailAndPassword(auth, email, password)
        
-        const user = userCredential.user
-        const storageRef = ref(storage, `images/${Date.now() + username}`)
-        const uploadTask = uploadBytesResumable(storageRef, file)
+        // const user = userCredential.user
+        // const storageRef = ref(storage, `images/${Date.now() + username}`)
+        // const uploadTask = uploadBytesResumable(storageRef, file)
         
-        uploadTask.on((error) => {
-          toast.error(error.message)
-        }, () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+        // uploadTask.on((error) => {
+        //   toast.error(error.message)
+        // }, () => {
+        //   getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
   
-            // udpate user profile
-            await updateProfile(user, {
-              displayName: username,
-              photoURL: downloadURL,
-            })
+        //     // udpate user profile
+        //     await updateProfile(user, {
+        //       displayName: username,
+        //       photoURL: downloadURL,
+        //     })
   
-            // store user data in firestore database
-            await setDoc(doc(db, 'users', user.uid), {
-              uid: user.uid,
-              displayName: username,
-              email,
-              photoURL: downloadURL,
+        //     // store user data in firestore database
+        //     await setDoc(doc(db, 'users', user.uid), {
+        //       uid: user.uid,
+        //       displayName: username,
+        //       email,
+        //       photoURL: downloadURL,
   
-            })
+        //     })
   
   
-          })
-        })
+        //   })
+        // })
         // Add user to Drupal
-      await addNewUser(drupalData)
+      await addNewUser({username, email, password})
       .unwrap()
       .then((payload) => console.log('fulfilled', payload),)
       .catch((error) => console.log('rejected', error))
       console.log('token FormData', formData)
 
       // get User token after registration signin from drupal
-      await getToken(formData)
-        .unwrap()
-        .then((payload) => {
-          console.log('fulfilled', payload)
-          localStorage.setItem('access_token', payload.access_token)
-          localStorage.setItem('refresh_token', payload.refresh_token)
-
-        })
-        .catch((error) => console.log('rejected', error))
+     
 
 
       setLoading(false)

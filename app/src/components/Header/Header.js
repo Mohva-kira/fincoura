@@ -19,15 +19,27 @@ import { useTranslation } from 'react-i18next'
 const nav__links = [
   {
     path: 'home',
-    display: 'Home'
+    display: 'Accueil'
   },
   {
-    path: 'shop',
-    display: 'Shop'
+    path: 'shop?category=linge de maison',
+    display: 'Linge de maison '
+  },
+  {
+    path: 'shop?category=Vêtements',
+    display: 'Vêtements'
+  },
+  {
+    path: 'shop?category=Acessoires',
+    display: 'Acessoires'
+  },
+  {
+    path: 'shop?category=Cosmetiques',
+    display: 'Cosmetiques'
   },
   {
     path: 'cart',
-    display: 'Cart'
+    display: 'Panier'
   }
 ]
 
