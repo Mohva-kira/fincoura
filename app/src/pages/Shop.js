@@ -61,7 +61,7 @@ const Shop = () => {
 
 
   useEffect(()=> {
-    setProductsData(data?.data.filter(item => item.attributes.category.data.attributes.name === categoryParam ))
+  categoryParam ? setProductsData(data?.data.filter(item => item.attributes.category.data.attributes.name === categoryParam )) : setProductsData(data?.data)
   }, [isSuccess, categoryParam])
 
   return <Helmet title="Shop"> 
