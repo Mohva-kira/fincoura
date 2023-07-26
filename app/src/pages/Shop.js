@@ -65,7 +65,7 @@ const Shop = () => {
   }, [isSuccess, categoryParam])
 
   return <Helmet title="Shop"> 
-      <CommonSection  title={categoryParam} />
+      <CommonSection  title={categoryParam ? categoryParam : 'Boutique'} />
       {console.log(productsData)}
       <section>
         <Container>

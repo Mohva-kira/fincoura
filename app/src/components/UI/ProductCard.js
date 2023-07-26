@@ -30,7 +30,7 @@ const ProductCard = ({item}) => {
             type: item.type
         }))
 
-        toast.success('Product added successfully ')
+        toast.success('Porduit ajouté au panier')
     }
     return (
         <Col lg='3' md='4' className='mb-4' >

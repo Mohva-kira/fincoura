@@ -30,16 +30,16 @@ const Footer = () => {
             <h4 className="quick__links-title">Top Categories</h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Vêtements</Link>
+                <Link to='/shop?category=Vêtments'>Vêtements</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Linge de Maison </Link>
+                <Link to='/shop?category=linge de Maison'>Linge de Maison </Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Cosmétiques</Link>
+                <Link to='/shop?category=Cosmetiques'>Cosmétiques</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='#'>Accessoires</Link>
+                <Link to='/shop?category=Accessoires'>Accessoires</Link>
               </ListGroupItem>
             </ListGroup>
           </div>
@@ -50,7 +50,7 @@ const Footer = () => {
             <h4 className="quick__links-title">Liens utiles</h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop'>Boutiques</Link>
+                <Link to='/shop'>Boutique</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
                 <Link to='/cart'>Panier</Link>
