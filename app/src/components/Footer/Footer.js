@@ -30,10 +30,10 @@ const Footer = () => {
             <h4 className="quick__links-title">Top Categories</h4>
             <ListGroup className='mb-3'>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop?category=Vêtments'>Vêtements</Link>
+                <Link to='/shop?category=Vêtements'>Vêtements</Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
-                <Link to='/shop?category=linge de Maison'>Linge de Maison </Link>
+                <Link to='/shop?category=linge de maison'>Linge de Maison </Link>
               </ListGroupItem>
               <ListGroupItem className='ps-0 border-0'>
                 <Link to='/shop?category=Cosmetiques'>Cosmétiques</Link>
