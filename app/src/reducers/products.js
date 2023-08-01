@@ -24,7 +24,7 @@ export const productsApi = createApi({
             query: (data) => ({
                 url: `/products?populate=*`,
                 method: 'GET',
-                headers: {'Authorization': 'bearer 9b63bb29e9dc9ac969b0c4ac3b01c7becaeb9bb3c2c534c39b8e3b3cf990a243090e601c4d99c22a60c3a6702daa60560b79ed46dd95ae9410d52ec069c9fcb4699d9cb679fa8c0a3a241611ab622bedf4c34d319b5ccc76ab9de557bc56dab131aec1fca33429922adeaaa77ae3385b9efb4aa87f623bd737e2a4ee0ebe0cc5'}
+               
             }),
         }),
        
