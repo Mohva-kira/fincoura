@@ -38,7 +38,7 @@ const ProductCard = ({item}) => {
            
             <div className="product__item ">
                 <div className="product__img">
-                    <motion.img whileHover={{scale: 0.9}} src={`http://141.94.204.155:1337${item.attributes.image.data[0].attributes.url}`} alt="" />
+                    <motion.img whileHover={{scale: 0.9}} src={`http://162.19.229.99:1337${item.attributes.image.data[0].attributes.url}`} alt="" />
                 </div>
                <div className="p-2 product__info">
                <h3 className="product__name"><Link to={`/shop/${item.id}`}> {item.attributes.name} </Link></h3>
