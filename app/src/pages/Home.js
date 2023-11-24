@@ -30,7 +30,7 @@ const Home = () => {
     const naturalProducts = data?.data.filter(item => item?.attributes.category?.data?.attributes.name === "Vêtements")
     const filteredTrendingProducts = naturalProducts?.slice( 0, 4)
 
-    const tranformedProducts = data?.data.filter(item => itemN.attributes.category?.data?.attributes.name === "linge de maison")
+    const tranformedProducts = data?.data.filter(item => item.attributes.category?.data?.attributes.name === "linge de maison")
     const filteredBestSalesProducts = tranformedProducts?.slice(Math.max(tranformedProducts.length - 4, 0))
 
     const newArrival = data?.data
