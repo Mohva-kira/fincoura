@@ -16,7 +16,7 @@ export const productsApi = createApi({
    
     reducerPath: 'productsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://162.19.229.99:1337/api',
+        baseUrl: 'https://admin.fincoura.com/api',
 
     }),
     endpoints: (builder) => ({

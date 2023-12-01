@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next'
 const Home = () => {
 
   const {t, i18n} = useTranslation()
-  const {data, isLoading, isSuccess} = useGetProductsQuery({})
+  const {data, isLoading, isFetching, isSuccess} = useGetProductsQuery({})
 
   const [trendingProduct, setTrendingProduct] = useState([])
   const [bestSalesProducts, setBestSalesProducts] = useState([])
@@ -30,7 +30,7 @@ const Home = () => {
     const naturalProducts = data?.data.filter(item => item?.attributes.category?.data?.attributes.name === "Vêtements")
     const filteredTrendingProducts = naturalProducts?.slice( 0, 4)
 
-    const tranformedProducts = data?.data.filter(item => item.attributes.category?.data?.attributes.name === "linge de maison")
+  const tranformedProducts = data?.data.filter(item => item.attributes.category?.data?.attributes.name === "linge de maison")
     const filteredBestSalesProducts = tranformedProducts?.slice(Math.max(tranformedProducts.length - 4, 0))
 
     const newArrival = data?.data
@@ -91,7 +91,12 @@ const Home = () => {
             <h2 className="section__title">Vêtements</h2>
 
           </Col>
-          <ProductList data={trendingProduct} />
+          {isFetching && 
+
+<h2 className="section__title">Wait ....</h2>
+          
+          }
+          <ProductList data={trendingProduct} isFetching={isFetching} />
         </Row>
       </Container>
     </section>
@@ -102,7 +107,7 @@ const Home = () => {
             <h2 className="section__title">Pour la maison</h2>
 
           </Col>
-          <ProductList data={bestSalesProducts}/>
+          <ProductList data={bestSalesProducts} isFetching={isFetching}/>
          
         </Row>
       </Container>
@@ -134,8 +139,8 @@ const Home = () => {
           <Col lg='12' className='text-center'>
             <h2 className='section__title'> Nouvelles Collections</h2>
           </Col>
-          <ProductList data={mobileProducts} />
-          <ProductList data={wirelessProducts} />
+          <ProductList data={mobileProducts} isLoading={isLoading}/>
+          <ProductList data={wirelessProducts} isLoading={isLoading} />
         </Row>
       </Container>
     </section>
@@ -145,7 +150,7 @@ const Home = () => {
           <Col lg='12' className='text-center'>
             <h2 className='section__title'> Catégorie Populaire </h2>
           </Col>
-          <ProductList data={popularProducts} />
+          <ProductList data={popularProducts} isLoading={isLoading} />
         </Row>
       </Container>
     </section>
