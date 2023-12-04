@@ -6,6 +6,7 @@ import '../styles/checkout.css'
 import { useSelector } from 'react-redux'
 import { useCheckoutOrderMutation, usePlaceOrderQuery } from '../reducers/cartSlice'
 import  '../assets/js/cinetPay.js'
+import { useGetTokenMutation } from '../reducers/payment.js'
 
 const Checkout = () => {
   const totalQty = useSelector(state=> state.cart.totalQuantity)
@@ -14,6 +15,8 @@ const Checkout = () => {
   const drupalCart = useSelector(state => state.cart.drupalCart)
 
   const orderId = drupalCart[0]?.relationships?.order_id?.data.id
+
+  const [getToken] = useGetTokenMutation()
 
   const [checkoutOrder] = useCheckoutOrderMutation()
   const getDataBody = () =>  {
@@ -40,52 +43,12 @@ const [skip, setSkip] = useState(true)
     
     try {
      
-      checkoutOrder(checkoutInfo)
+      getToken()
       .unwrap()
       .then((payload) => {
           console.log('checkout payload', payload)
       })
       .catch((error) => console.log('rejected', error))
-      
-      CinetPay.setConfig({
-        apikey: '74673491863c2850267ef47.72040759',//   YOUR APIKEY
-        site_id: 'Fincoura',//YOUR_SITE_ID
-        notify_url: 'http://localhost:3000/checkoutComplete/',
-        mode: 'SANDBOX'
-    })
-
-    CinetPay.getCheckout({
-      transaction_id: Math.floor(Math.random() * 100000000).toString(),
-      amount: totalAmount,
-      currency: 'XOF',
-      channels: 'ALL',
-      description: 'Test de paiement',   
-       //Fournir ces variables pour le paiements par carte bancaire
-      customer_name:"Joe",//Le nom du client
-      customer_surname:"Down",//Le prenom du client
-      customer_email: "down@test.com",//l'email du client
-      customer_phone_number: "088767611",//l'email du client
-      customer_address : "BP 0024",//addresse du client
-      customer_city: "Antananarivo",// La ville du client
-      customer_country : "CM",// le code ISO du pays
-      customer_state : "CM",// le code ISO l'état
-      customer_zip_code : "06510", // code postal
-
-  })
-  CinetPay.waitResponse(function(data) {
-    if (data.status == "REFUSED") {
-        if (alert("Votre paiement a échoué")) {
-            window.location.reload();
-        }
-    } else if (data.status == "ACCEPTED") {
-        if (alert("Votre paiement a été effectué avec succès")) {
-            window.location.reload();
-        }
-    }
-})
-CinetPay.onError(function(data) {
-    console.log(data);
-})
     } catch (error) {
        console.log(error.toString())
     }

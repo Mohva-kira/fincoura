@@ -6,17 +6,19 @@ import { cartApi } from '../reducers/cartSlice'
 import cartSlice from '../reducers/cartSlice'
 
 import authSlice, {authAPI} from '../reducers/authSlice'
+import paymentSlice, { paymentApi } from '../reducers/payment'
 
 
 export default configureStore({
   reducer: {
     products: productsReducer,
-
     cart: cartSlice,
     user: authSlice,
+    payData: paymentSlice,
     [cartApi.reducerPath]: cartApi.reducer,
     [productsApi.reducerPath]: productsApi.reducer,
-    [authAPI.reducerPath]: authAPI.reducer
+    [authAPI.reducerPath]: authAPI.reducer,
+    [paymentApi.reducerPath]: paymentApi.reducer,
 
     
   },
@@ -26,7 +28,8 @@ export default configureStore({
     }).concat(
       productsApi.middleware,
       cartApi.middleware,
-      authAPI.middleware
+      authAPI.middleware,
+      paymentApi.middleware,
     ),
   devTools: true,
 })
